@@ -1,0 +1,29 @@
+.no-items > p{
+    display:block !important;
+}
+
+.a-hidden{
+    opacity:0;
+    z-index:-10;
+    position:absolute;
+    left:-1000;
+}
+
+.wc-product-list+.select2-container{
+    width:100% !important;
+}
+
+.product-list.no-items table.product-list-table{
+    display:none;
+}
+.product-list table.product-list-table td{
+    font-size:12px;
+}
+.product-list table.product-list-table td:last-child a{
+    color:red;
+    font-size:10px;
+    font-weight:bold;
+}
+.product-list table.product-list-table td:last-child a:hover{
+    text-decoration:none;
+}

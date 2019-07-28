@@ -30,6 +30,13 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Automattic\WooCommerce\Client;
+use Automattic\WooCommerce\Abstracts;
+
+
 /**
  * Currently plugin version.
  * Start at version 1.0.0 and use SemVer - https://semver.org
@@ -37,6 +44,13 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define( 'ARTEROSIL_SUPPORT_TOOL_VERSION', '1.0.0' );
 
+if( ! defined('ARTEROSIL_SUPPORT_TOOL_PLUGIN_FOLDER')) define('ARTEROSIL_SUPPORT_TOOL_PLUGIN_FOLDER', plugin_basename(dirname(__FILE__)));
+if( ! defined('ARTEROSIL_SUPPORT_TOOL_PLUGIN_URL')) define('ARTEROSIL_SUPPORT_TOOL_PLUGIN_URL', plugin_dir_url( __FILE__ ));
+
+if( ! defined('ARTEROSIL_SUPPORT_TOOL_PLUGIN_NAME')) define('ARTEROSIL_SUPPORT_TOOL_PLUGIN_NAME', 'arterosil-support-tool');
+if( ! defined('ARTEROSIL_SUPPORT_TOOL_PLUGIN_VERSION')) define('ARTEROSIL_SUPPORT_TOOL_PLUGIN_VERSION', '1.0.0');
+
+if( ! defined('ARTEROSIL_CSTOOL')) define('ARTEROSIL_CSTOOL', plugin_dir_path( __FILE__ ).'includes/classes/Arterosil/CSTool/');
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-arterosil-support-tool-activator.php
@@ -73,6 +87,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-arterosil-support-tool.php
  *
  * @since    1.0.0
  */
+
 function run_arterosil_support_tool() {
 
 	$plugin = new Arterosil_Support_Tool();
