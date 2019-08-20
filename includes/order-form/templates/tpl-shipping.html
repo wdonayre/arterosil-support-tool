@@ -1,0 +1,52 @@
+<div class="shipping form-update">
+    <div class="">
+        <label class="shipping__title d-block">Shipping <a href="#" class="ml-2 form-update__view" data-aaction="formUpdate"><small>Edit</small></a></label>
+        <p class="form-update__view">
+            {{data.shipping_first_name}} {{data.shipping_last_name}}<br>
+            {{data.shipping_address_1}}<br>
+            {{data.shipping_address_2}}<br>
+            {{data.shipping_city}} {{data.shipping_country}} {{data.shipping_postcode}}
+        </p>
+    </div>
+    <div class="card bg-light rounded-0 border-0 form-update__edit" style="display:none;">
+        <div class="card-body">
+            <div class="form-group">
+                <input class="form-control" placeholder="Shipping first name" name="shipping_first_name" value="{{data.shipping_first_name}}">   
+            </div>  
+            <div class="form-group">
+                <input class="form-control" placeholder="Shipping last name" name="shipping_last_name" value="{{data.shipping_last_name}}">   
+            </div>  
+            <div class="form-group">
+                <input class="form-control" placeholder="Address Line 1" name="shipping_address_1" value="{{data.shipping_address_1}}">   
+            </div>  
+            <div class="form-group">
+                <input class="form-control" placeholder="Address Line 2" name="shipping_address_2" value="{{data.shipping_address_2}}">   
+            </div> 
+            <div class="form-group">
+                <input class="form-control" placeholder="City" name="shipping_city" value="{{data.shipping_city}}">   
+            </div>  
+            <div class="form-group">
+                <select class="form-control" name="shipping_country">
+                    {{#select config.country_list data.shipping_country}}{{/select}}
+                </select>
+            </div>    
+            <div class="form-group">
+                    {{#ifEquals data.shipping_country "US"}}
+                        <select class="form-control" name="shipping_state">
+                        {{#select config.state_list.US data.shipping_state}}{{/select}}
+                        </select>
+                    {{/ifEquals}}
+
+                    {{#ifEquals data.shipping_country "PR"}}
+                        <input class="form-control" placeholder="State" name="shipping_state" value="{{data.shipping_state}}">
+                    {{/ifEquals}}
+            </div>    
+            <div class="form-group">
+                <input class="form-control" placeholder="Postcode" name="shipping_postcode" value="{{data.shipping_postcode}}">   
+            </div>   
+            <div class="form-group">
+                <button class="form-control btn btn-dark btn-block" data-aaction="updateShipping">Update Shipping</button>
+            </div>
+        </div>    
+    </div>
+</div>

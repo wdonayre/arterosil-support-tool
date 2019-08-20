@@ -96,6 +96,7 @@ class Arterosil_Support_Tool_Public {
 		 * class.
 		 */
 
+		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/handlebars-latest.js', array( 'handlebar' ), $this->version, false );
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/arterosil-support-tool-public.js', array( 'jquery' ), $this->version, false );
 
 	}

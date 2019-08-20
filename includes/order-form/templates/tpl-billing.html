@@ -1,0 +1,52 @@
+<div class="billing form-update">
+    <div class="">
+        <label class="billing__title d-block">Billing <a href="#" class="ml-2 form-update__view" data-aaction="formUpdate"><small>Edit</small></a></label>
+        <p class="form-update__view">
+            {{data.billing_first_name}} {{data.billing_last_name}}<br>
+            {{data.billing_address_1}}<br>
+            {{data.billing_address_2}}<br>
+            {{data.billing_city}} {{data.billing_country}} {{data.billing_state}} {{data.billing_postcode}}
+        </p>
+    </div>
+    <div class="card bg-light rounded-0 border-0 form-update__edit" style="display:none;">
+        <div class="card-body">
+            <div class="form-group">
+                <input class="form-control" placeholder="Billing first name" name="billing_first_name" value="{{data.billing_first_name}}">   
+            </div>  
+            <div class="form-group">
+                <input class="form-control" placeholder="Billing last name" name="billing_last_name" value="{{data.billing_last_name}}">   
+            </div>  
+            <div class="form-group">
+                <input class="form-control" placeholder="Address Line 1" name="billing_address_1" value="{{data.billing_address_1}}">   
+            </div>  
+            <div class="form-group">
+                <input class="form-control" placeholder="Address Line 2" name="billing_address_2" value="{{data.billing_address_2}}">   
+            </div> 
+            <div class="form-group">
+                <input class="form-control" placeholder="City" name="billing_city" value="{{data.billing_city}}">   
+            </div>  
+            <div class="form-group">
+                <select class="form-control" name="billing_country">
+                    {{#select config.country_list data.billing_country}}{{/select}}
+                </select>
+            </div>    
+            <div class="form-group">
+                    {{#ifEquals data.billing_country "US"}}
+                        <select class="form-control" name="billing_state">
+                            {{#select config.state_list.US data.billing_state}}{{/select}}
+                        </select>
+                    {{/ifEquals}}
+
+                    {{#ifEquals data.billing_country "PR"}}
+                        <input class="form-control" placeholder="State" name="billing_state" value="{{data.billing_state}}">
+                    {{/ifEquals}}
+            </div>  
+            <div class="form-group">
+                <input class="form-control" placeholder="Postcode" name="billing_postcode" value="{{data.billing_postcode}}">   
+            </div>     
+            <div class="form-group">
+                <button class="form-control btn btn-dark btn-block" data-aaction="updateBilling">Update Billing</button>
+            </div>
+        </div>    
+    </div>
+</div>

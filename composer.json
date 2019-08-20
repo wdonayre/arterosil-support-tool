@@ -1,0 +1,17 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Automattic\\WooCommerce\\": ["vendor/automattic/woocommerce/src/WooCommerce"],
+            "ZendeskCSWooCart\\": ["includes/classes/Arterosil/CSTool/"],
+            "ZendeskCSWooCart\\Models\\": "includes/classes/models/"
+        }
+    },
+    "require": {
+        "stripe/stripe-php": "^6.40",
+        "select2/select2": "^4.0",
+        "components/jquery": "^3.3",
+        "twbs/bootstrap": "^4.3",
+        "automattic/woocommerce": "^3.0",
+        "vlucas/phpdotenv": "^3.4"
+    }
+}

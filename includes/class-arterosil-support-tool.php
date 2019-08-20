@@ -1,19 +1,6 @@
 <?php
 
 /**
- * The file that defines the core plugin class
- *
- * A class definition that includes attributes and functions used across both the
- * public-facing side of the site and the admin area.
- *
- * @link       https://github.com/wdonayre
- * @since      1.0.0
- *
- * @package    Arterosil_Support_Tool
- * @subpackage Arterosil_Support_Tool/includes
- */
-
-/**
  * The core plugin class.
  *
  * This is used to define internationalization, admin-specific hooks, and
@@ -27,6 +14,7 @@
  * @subpackage Arterosil_Support_Tool/includes
  * @author     William Donayre Jr. <william@phillipswdc.com>
  */
+
 class Arterosil_Support_Tool {
 
 	/**
@@ -122,8 +110,35 @@ class Arterosil_Support_Tool {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-arterosil-support-tool-public.php';
 
-		$this->loader = new Arterosil_Support_Tool_Loader();
+		/**
+		 * Include Classes here
+		*/
 
+		require plugin_dir_path( dirname( __FILE__ ) ) . 'includes/classes/Arterosil/lib/Autoloader.php';
+	
+		//ARTEROSIL_CSTOOL
+		require_once (ARTEROSIL_CSTOOL.'ArterosilConfig.php');
+		require_once (ARTEROSIL_CSTOOL.'ArterosilTool.php');	
+
+		//CUSTOM AJAX
+		require_once (plugin_dir_path( dirname( __FILE__ ) ) . 'includes/ajax/createCustomerByPaymentMethod.php');
+		require_once (plugin_dir_path( dirname( __FILE__ ) ) . 'includes/ajax/attachCard.php');	
+		require_once (plugin_dir_path( dirname( __FILE__ ) ) . 'includes/ajax/get-intent.php');
+		require_once (plugin_dir_path( dirname( __FILE__ ) ) . 'includes/ajax/get-user.php');
+		require_once (plugin_dir_path( dirname( __FILE__ ) ) . 'includes/ajax/get-all.php');
+		require_once (plugin_dir_path( dirname( __FILE__ ) ) . 'includes/ajax/get-test.php');
+		require_once (plugin_dir_path( dirname( __FILE__ ) ) . 'includes/ajax/process-order.php');	
+		require_once (plugin_dir_path( dirname( __FILE__ ) ) . 'includes/ajax/update-billing.php'); 
+		require_once (plugin_dir_path( dirname( __FILE__ ) ) . 'includes/ajax/update-shipping.php'); 
+
+		//ENDPOINT
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/order-form/class-order-form.php'; 
+		new A_OrderForm();
+
+
+		//$test = new ArterosilConfig();
+		$this->loader = new Arterosil_Support_Tool_Loader();
+		//ArterosilConfig::instance();
 	}
 
 	/**
